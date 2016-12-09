@@ -1,0 +1,4 @@
+hop_id varchar(20),
+address varchar(20),
+lrs_bits varchar(20),
+

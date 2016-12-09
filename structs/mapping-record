@@ -1,0 +1,3 @@
+recordttl Integer,
+action varchar(50),
+authoritative Boolean,

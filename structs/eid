@@ -1,0 +1,2 @@
+address_type_eid varchar(50),
+ipv4_prefix_eid varchar(20),	

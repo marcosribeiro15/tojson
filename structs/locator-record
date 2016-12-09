@@ -1,0 +1,8 @@
+locator_id varchar(20),
+priority Integer,
+weight Integer,
+multicastPriority Integer,
+multicastWeight Integer,
+localLocator Boolean,
+rlocProbed Boolean,
+routed Boolean,
