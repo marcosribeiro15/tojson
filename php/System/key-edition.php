@@ -10,8 +10,9 @@ class KeyEdition{
 		shell_exec($edition);
 	}
 	public function script_consulta($consulta){
-		$edition="sed -e 's/\"ipv4-prefix\": \"172.18.0.2\/32\"/\"ipv4-prefix\": \"".$consulta->ipv4_prefix_eid."\/".$consulta->mask."\"/g' /var/www/html/tojson/models/consulta.json > /var/www/html/tojson/json/consulta.json 2>&1";
-		shell_exec($edition);
+		// $edition="sed -e 's/\"ipv4-prefix\": \"172.18.0.2\/32\"/\"ipv4-prefix\": \"".$consulta->ipv4_prefix_eid."\/".$consulta->mask."\"/g' /var/www/html/tojson/models/consulta.json > /var/www/html/tojson/json/consulta.json 2>&1";
+
+		shell_exec('echo "chegou aqui" > /var/www/html/tojson/tmp1');
 	}
 	public function script_add_mapping_path($mapping){
 		//set recordttl from path
