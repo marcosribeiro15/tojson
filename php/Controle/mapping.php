@@ -40,7 +40,7 @@ class MappingControle{
 		// $script='curl -u "admin":"admin" -H "Content-type: application/json" -X POST http://'.$serverODL.'/restconf/operations/odl-mappingservice:add-mapping --data @/var/www/html/tojson/json/addmappinglb.json --trace /var/www/html/tojson/logs/tmp';
 		// $_SESSION['log'] = shell_exec($script);
 		// if(empty($_SESSION['log'])) $_SESSION['log'] = 'Mapeamento adicionado com sucesso';
-		echo "chegou aqui"
+		echo "chegou aqui";
 	}
 	public function removemapping(){
 		if(!isset($_SESSION['serverODL']) || empty($_SESSION['serverODL'])) header('location: ../../index.php');
