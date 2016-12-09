@@ -1,0 +1,43 @@
+{
+	"input": {
+		"mapping-record": {
+			"recordTtl": 1440,
+			"action": "NoAction",
+			"authoritative": true,
+			"eid": {
+				"address-type": "ietf-lisp-address-types:ipv4-prefix-afi",
+				"ipv4-prefix": "1.1.1.1/32"
+				},
+				"LocatorRecord": [
+				{
+					"locator-id": "path1",
+					"priority": 1,
+					"weight": 30,
+					"multicastPriority": 255,
+					"multicastWeight": 0,
+					"localLocator": true,
+					"rlocProbed": false,
+					"routed": true,
+					"rloc": {
+						"address-type": "ietf-lisp-address-types:ipv4-afi",
+						"ipv4": "1.1.1.1"
+						}
+						},
+						{
+							"locator-id": "1.1.1.1",
+							"priority": 1,
+							"weight": 70,
+							"multicastPriority": 255,
+							"multicastWeight": 0,
+							"localLocator": true,
+							"rlocProbed": false,
+							"routed": true,
+							"rloc": {
+								"address-type": "ietf-lisp-address-types:ipv4-afi",
+								"ipv4": "1.1.1.2"
+					}
+				}
+			]
+		}
+	}
+}
