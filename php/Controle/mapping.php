@@ -161,6 +161,6 @@ if(MappingControle::not_null('acao')){
 	else if($action == 'get') MappingControle::getmapping();
 }
 
-header('Location: ../../mapping.php');
+// header('Location: ../../mapping.php');
 
 ?>
