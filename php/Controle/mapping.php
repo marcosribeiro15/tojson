@@ -32,8 +32,8 @@ class MappingControle{
 		if(empty($_SESSION['log'])) $_SESSION['log'] = 'Mapeamento adicionado com sucesso';
 	}
 	public function addmappingLB(){
-		if(!isset($_SESSION['serverODL']) || empty($_SESSION['serverODL'])) header('location: ../../index.php');
-		else $serverODL=$_SESSION['serverODL'];
+		// if(!isset($_SESSION['serverODL']) || empty($_SESSION['serverODL'])) header('location: ../../index.php');
+		// else $serverODL=$_SESSION['serverODL'];
 
 		$serverODL='10.132.12.138:8181';
 		MappingControle::make_addmapping_lb();
@@ -160,6 +160,6 @@ if(MappingControle::not_null('acao')){
 	else if($action == 'get') MappingControle::getmapping();
 }
 
-// header('Location: ../../mapping.php');
+header('Location: ../../mapping.php');
 
 ?>

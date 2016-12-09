@@ -267,7 +267,7 @@ session_start();
 								<div class="col-xs-2"; style="width:60px;padding-left:0px;">
 										<label for="mask"></label><input class="form-control" id="mask" type="text" name="mask" value="32">
 								</div>
-						        <input type="hidden" name="action" value="get"/>
+						        <input type="hidden" name="acao" value="get"/>
 						        <div style="padding-top: 20px;">
 						    		<input type="submit" class="btn btn-default" data-toggle="collapse" data-target="#getkey" style="width:60px;float: left" value="Get" />
 						    	</div>
@@ -282,7 +282,7 @@ session_start();
 								<div class="col-xs-2"; style="width:60px;padding-left:0px;">
 										<label for="mask"></label><input class="form-control" id="mask" type="text" name="mask" value="32">
 								</div>
-						        <input type="hidden" name="action" value="del"/>
+						        <input type="hidden" name="acao" value="del"/>
 						        <div style="padding-top: 20px;">
 						    		<input type="submit" class="btn btn-default" data-toggle="collapse" data-target="#getkey" style="width:60px;float: left" value="Delete" />
 						    	</div>
