@@ -10,7 +10,7 @@ class KeyEdition{
 		shell_exec($edition);
 	}
 	public function script_consulta($consulta){
-		$edition="sed -e 's/\"ipv4-prefix\": \"172.18.0.2\/32\"/\"ipv4-prefix\": \"29.29.29.29\/32\"/g' /var/www/html/tojson/models/consulta.json > /var/www/html/tojson/json/consulta.json 2>&1";
+		$edition="sed -e 's/\"ipv4-prefix\": \"172.18.0.2\/32\"/\"ipv4-prefix\": \"30.30.30.30\/32\"/g' /var/www/html/tojson/models/consulta.json > /var/www/html/tojson/json/consulta.json 2>&1";
 		shell_exec($edition);
 	}
 	public function script_add_mapping_path($mapping){
