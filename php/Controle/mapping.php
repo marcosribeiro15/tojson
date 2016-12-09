@@ -31,7 +31,7 @@ class MappingControle{
 		// $_SESSION['log'] = shell_exec($script);
 		// if(empty($_SESSION['log'])) $_SESSION['log'] = 'Mapeamento adicionado com sucesso';
 
-		echo "chegou aqui"
+		echo "chegou aqui";
 	}
 	public function addmappingLB(){
 		// if(!isset($_SESSION['serverODL']) || empty($_SESSION['serverODL'])) header('location: ../../index.php');
@@ -154,7 +154,7 @@ class MappingControle{
 
 }
 if(MappingControle::not_null('acao')){
-	$action = $_GET['acao'];
+	$action = $_GET['action'];
 	if($action == 'del') MappingControle::removemapping();
  	else if($action == 'addpath')MappingControle::addmappingPATH();
  	else if($action == 'addelp') MappingControle::addmappingELP();
