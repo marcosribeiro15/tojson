@@ -153,7 +153,7 @@ class MappingControle{
 	}
 
 }
-if(MappingControle::not_null('acao')){
+if(MappingControle::not_null('action')){
 	$action = $_GET['action'];
 	if($action == 'del') MappingControle::removemapping();
  	else if($action == 'addpath')MappingControle::addmappingPATH();
