@@ -153,8 +153,8 @@ class MappingControle{
 	}
 
 }
-if(MappingControle::not_null('action')){
-	$action = $_GET['action'];
+if(MappingControle::not_null('acao')){
+	$action = $_GET['acao'];
 	if($action == 'del') MappingControle::removemapping();
  	else if($action == 'addpath')MappingControle::addmappingPATH();
  	else if($action == 'addelp') MappingControle::addmappingELP();

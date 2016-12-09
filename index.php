@@ -156,6 +156,7 @@ session_start();
 											ipv4_rloc:<p> <input type="text" name="ipv4_rloc" value="1.1.1.1"></br></br>
 											<input type="hidden" name="acao" value="addpath">
 										    <input type="submit" value="Enviar"/></br>
+										</form>
 								</div>
 							</div>
 						</div>
