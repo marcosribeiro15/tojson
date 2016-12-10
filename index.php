@@ -296,7 +296,10 @@ session_start();
 </div>
 <fieldset>
   <?php
-		if(!isset($_SESSION['log']) || empty($_SESSION['log'])) echo 'As descrições do serviço aparecerão aqui.';
+		if(!isset($_SESSION['log']) || empty($_SESSION['log'])){
+			echo '<div class="alert alert-success" style="text-align: center"> <strong> As descrições do serviço aparecerão aqui. </strong> <a href="json/logs/tmp" target="_blank"> Ver log de rede </a></div>';
+		}
+
 		else echo $_SESSION['log'];
 		unset($_SESSION['log']);
 	?>
