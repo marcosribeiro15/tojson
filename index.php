@@ -302,15 +302,16 @@ session_start();
 		}
 
 		else{
+			$sucessaddkey = 'Senha adicionada com sucesso.';
+			$sucessaddmap = 'Mapeamento adicionado com sucesso';
+			$sucessget = ''
 			//sucesso
+			if(($_SESSION['log']) == $sucessaddkey || ($_SESSION['log']) == $sucessaddmapping | ($_SESSION["log"]) == $sucessget ){
 			echo '<div class="alert alert-success" style="text-align: center"> <strong> '.$_SESSION["log"].'. </strong> <a href="log-rede.php" target="_blank"> Ver log de rede </a></div>';
 			//fail
-			echo '<div class="alert alert-fail" style="text-align: center"> <strong> '.$_SESSION["log"].'. </strong> <a href="log-rede.php" target="_blank"> Ver log de rede </a></div>';
-			//warning
-			echo '<div class="alert alert-warning" style="text-align: center"> <strong> '.$_SESSION["log"].'. </strong> <a href="log-rede.php" target="_blank"> Ver log de rede </a></div>';
+			echo '<div class="alert alert-danger" style="text-align: center"> <strong> '.$_SESSION["log"].'. </strong> <a href="log-rede.php" target="_blank"> Ver log de rede </a></div>';
 		}
 		unset($_SESSION['log']);
-		shell_exec('rm /var/www/html/tojson/logs/tmp;');
 	?>
 </fieldset>
 </body>
