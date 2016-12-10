@@ -20,7 +20,7 @@ class KeyControle{
 		// else $serverODL=$_SESSION['serverODL'];
 		// KeyControle::make_consulta();
 
-		$serverODL='10.132.12.138:8181';
+		$serverODL='200.129.39.109:8181';
 
 		$script='curl -u "admin":"admin" -H "Content-type: application/json" -X POST \http://'.$serverODL.'/restconf/operations/odl-mappingservice:remove-key \--data @/var/www/html/tojson/json/consulta.json --trace /var/www/html/tojson/logs/tmp';
 		$_SESSION['log'] = shell_exec($script);
