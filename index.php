@@ -311,6 +311,7 @@ session_start();
 			//fail
 			echo '<div class="alert alert-danger" style="text-align: center"> <strong> '.$_SESSION["log"].'. </strong> <a href="log-rede.php" target="_blank"> Ver log de rede </a></div>';
 		}
+	}
 		unset($_SESSION['log']);
 	?>
 </fieldset>
