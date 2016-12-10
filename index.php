@@ -302,7 +302,7 @@ session_start();
 		}
 
 		else{
-			$sucessaddkey = 'Senha adicionada com sucesso.';
+			$sucessaddkey = 'Senha adicionada com sucesso';
 			$sucessaddmap = 'Mapeamento adicionado com sucesso';
 			$sucessget = 'output';
 			$sucessrmkey = "Senha removida com sucesso";
