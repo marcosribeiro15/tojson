@@ -46,6 +46,7 @@ class KeyControle{
 		KeyControle::make_addkey();
 		$script='curl -u "admin":"admin" -H "Content-type: application/json" -X POST \http://'.$serverODL.'/restconf/operations/odl-mappingservice:update-key \--data @/var/www/html/tojson/json/addkey.json --trace /var/www/html/tojson/logs/tmp';
 		$_SESSION['log'] = shell_exec($script);
+		if(empty($_SESSION['log'])) $_SESSION['log'] = 'Senha atualizada com sucesso';
 	}
 	public function not_null($variable){
 		return isset($_GET[$variable]);

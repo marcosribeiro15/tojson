@@ -307,8 +307,9 @@ session_start();
 			$sucessget = 'output';
 			$sucessrmkey = "Senha removida com sucesso";
 			$sucessrmmap = "Mapeamento removido com sucesso";
+			$sucessrfkey = "Senha atualizada com sucesso";
 			//sucesso
-			if(($_SESSION['log']) == $sucessaddkey || ($_SESSION['log']) == $sucessaddmap | substr(($_SESSION["log"]), 2, 6) == $sucessget | ($_SESSION['log']) == $sucessrmkey | ($_SESSION['log']) == $sucessrmmap){
+			if(($_SESSION['log']) == $sucessaddkey || ($_SESSION['log']) == $sucessaddmap | substr(($_SESSION["log"]), 2, 6) == $sucessget | ($_SESSION['log']) == $sucessrmkey | ($_SESSION['log']) == $sucessrfkey){
 			echo '<div class="alert alert-success" style="text-align: center"> <strong> '.$_SESSION["log"].'. </strong> <a href="log-rede.php" target="_blank"> Ver log de rede </a></div>';
 		}else {
 		//fail
