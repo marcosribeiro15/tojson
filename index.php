@@ -301,7 +301,7 @@ session_start();
 		}
 
 		else{
-			echo '<div class="alert alert-success" style="text-align: center"> <strong> '.$_SESSION["log"].'. </strong> <a href="json/logs/tmp" target="_blank"> Ver log de rede </a></div>';
+			echo '<div class="alert alert-success" style="text-align: center"> <strong> '.$_SESSION["log"].'. </strong> <a href="log-rede.php" target="_blank"> Ver log de rede </a></div>';
 			shell_exec('rm /var/www/html/tojson/logs/tmp;');
 		}
 		unset($_SESSION['log']);
@@ -312,7 +312,7 @@ session_start();
 			WWW-DATA log<br>
 		</legend>
 	<?php
-		echo shell_exec('if [ -f /var/www/html/tojson/logs/tmp ];then sed -e \'s/HTTP\/1.1 /<b>HTTP\/1.1 <\/b>/g\' /var/www/html/tojson/logs/tmp;else echo "Não existe registro de rede.";fi;');
+		echo shell_exec('');
 	?>
 	</fiedlset>
 </body>
