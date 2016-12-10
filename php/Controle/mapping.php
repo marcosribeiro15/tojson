@@ -13,7 +13,7 @@ class MappingControle{
 		// if(!isset($_SESSION['serverODL']) || empty($_SESSION['serverODL'])) header('location: ../../index.php');
 		// else $serverODL=$_SESSION['serverODL'];
 
-		$serverODL='10.132.12.138:8181';
+		$serverODL='200.129.39.109:8181';
 
 		MappingControle::make_addmapping_elp();
 		$script='curl -u "admin":"admin" -H "Content-type: application/json" -X POST http://'.$serverODL.'/restconf/operations/odl-mappingservice:add-mapping --data @/var/www/html/tojson/json/addmappingelp.json --trace /var/www/html/tojson/logs/tmp';
@@ -24,10 +24,10 @@ class MappingControle{
 		// if(!isset($_SESSION['serverODL']) || empty($_SESSION['serverODL'])) header('location: ../../index.php');
 		// else $serverODL=$_SESSION['serverODL'];
 
-		$serverODL='10.132.12.138:8181';
+		$serverODL='200.129.39.109:8181';
 
 		MappingControle::make_addmapping_path();
-		$script='curl -u "admin":"admin" -H "Content-type: application/json" -X POST http://'.$serverODL.'/restconf/operations/odl-mappingservice:add-mapping --data @/var/www/html/tojson/json/addmappingpath.json --trace /var/www/html/tojson/logs/tmp';
+		$script='curl -u "admin":"admin" -H "Content-type: application/json" -X POST http://10.132.12.138:8181/restconf/operations/odl-mappingservice:add-mapping --data @/var/www/html/tojson/json/addmappingpath.json --trace /var/www/html/tojson/logs/tmp';
 		$_SESSION['log'] = shell_exec($script);
 		if(empty($_SESSION['log'])) $_SESSION['log'] = 'Mapeamento adicionado com sucesso';
 	}
@@ -35,7 +35,7 @@ class MappingControle{
 		// if(!isset($_SESSION['serverODL']) || empty($_SESSION['serverODL'])) header('location: ../../index.php');
 		// else $serverODL=$_SESSION['serverODL'];
 
-		$serverODL='10.132.12.138:8181';
+		$serverODL='200.129.39.109:8181';
 		MappingControle::make_addmapping_lb();
 		$script='curl -u "admin":"admin" -H "Content-type: application/json" -X POST http://'.$serverODL.'/restconf/operations/odl-mappingservice:add-mapping --data @/var/www/html/tojson/json/addmappinglb.json --trace /var/www/html/tojson/logs/tmp';
 		$_SESSION['log'] = shell_exec($script);
@@ -45,7 +45,7 @@ class MappingControle{
 		if(!isset($_SESSION['serverODL']) || empty($_SESSION['serverODL'])) header('location: ../../index.php');
 		else $serverODL=$_SESSION['serverODL'];
 
-		$serverODL='10.132.12.138:8181';
+		$serverODL='200.129.39.109:8181';
 
 		MappingControle::make_consulta();
 		$script='curl -u "admin":"admin" -H "Content-type: application/json" -X POST \http://'.$serverODL.'/restconf/operations/odl-mappingservice:remove-mapping \--data @/var/www/html/tojson/json/consulta.json --trace /var/www/html/tojson/logs/tmp';
@@ -56,7 +56,7 @@ class MappingControle{
 		// if(!isset($_SESSION['serverODL']) || empty($_SESSION['serverODL'])) header('location: ../../index.php');
 		// else $serverODL=$_SESSION['serverODL'];
 
-		$serverODL='10.132.12.138:8181';
+		$serverODL='200.129.39.109:8181';
 
 		MappingControle::make_consulta();
 		$script='curl -u "admin":"admin" -H "Content-type: application/json" -X POST http://'.$serverODL.'/restconf/operations/odl-mappingservice:get-mapping --data @/var/www/html/tojson/json/consulta.json --trace /var/www/html/tojson/logs/tmp';
