@@ -308,9 +308,10 @@ session_start();
 			//sucesso
 			if(($_SESSION['log']) == $sucessaddkey || ($_SESSION['log']) == $sucessaddmapping | substr(($_SESSION["log"]), 2, 6) == $sucessget ){
 			echo '<div class="alert alert-success" style="text-align: center"> <strong> '.$_SESSION["log"].'. </strong> <a href="log-rede.php" target="_blank"> Ver log de rede </a></div>';
-		}
+		}else {
 		//fail
 			echo '<div class="alert alert-danger" style="text-align: center"> <strong> '.$_SESSION["log"].'. </strong> <a href="log-rede.php" target="_blank"> Ver log de rede </a></div>';
+		}
 	}
 		unset($_SESSION['log']);
 	?>
