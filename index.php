@@ -298,17 +298,16 @@ session_start();
   <?php
 		if(!isset($_SESSION['log']) || empty($_SESSION['log'])){
 			//info
-			echo '<div class="alert alert-info" style="text-align: center"> <strong> As descrições do serviço aparecerão aqui. </strong> <a href="json/logs/tmp" target="_blank"> Ver log de rede </a></div>';
-
+			echo '<div class="alert alert-info" style="text-align: center"> <strong> As descrições do serviço aparecerão aqui. </strong></div>';
 		}
 
 		else{
 			//sucesso
 			echo '<div class="alert alert-success" style="text-align: center"> <strong> '.$_SESSION["log"].'. </strong> <a href="log-rede.php" target="_blank"> Ver log de rede </a></div>';
 			//fail
-			echo '<div class="alert alert-success" style="text-align: center"> <strong> '.$_SESSION["log"].'. </strong> <a href="log-rede.php" target="_blank"> Ver log de rede </a></div>';
+			echo '<div class="alert alert-fail" style="text-align: center"> <strong> '.$_SESSION["log"].'. </strong> <a href="log-rede.php" target="_blank"> Ver log de rede </a></div>';
 			//warning
-			echo '<div class="alert alert-success" style="text-align: center"> <strong> '.$_SESSION["log"].'. </strong> <a href="log-rede.php" target="_blank"> Ver log de rede </a></div>';
+			echo '<div class="alert alert-warning" style="text-align: center"> <strong> '.$_SESSION["log"].'. </strong> <a href="log-rede.php" target="_blank"> Ver log de rede </a></div>';
 		}
 		unset($_SESSION['log']);
 		shell_exec('rm /var/www/html/tojson/logs/tmp;');
