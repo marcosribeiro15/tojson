@@ -304,7 +304,7 @@ session_start();
 		else{
 			$sucessaddkey = 'Senha adicionada com sucesso.';
 			$sucessaddmap = 'Mapeamento adicionado com sucesso';
-			$sucessget = ''
+			$sucessget = '{[error]';
 			//sucesso
 			if(($_SESSION['log']) == $sucessaddkey || ($_SESSION['log']) == $sucessaddmapping | ($_SESSION["log"]) == $sucessget ){
 			echo '<div class="alert alert-success" style="text-align: center"> <strong> '.$_SESSION["log"].'. </strong> <a href="log-rede.php" target="_blank"> Ver log de rede </a></div>';
