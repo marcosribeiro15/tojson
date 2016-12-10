@@ -14,6 +14,7 @@ class KeyControle{
 		KeyControle::make_addkey();
 		$script='curl -u "admin":"admin" -H "Content-type: application/json" -X POST \http://'.$serverODL.'/restconf/operations/odl-mappingservice:add-key \--data @/var/www/html/tojson/json/addkey.json --trace /var/www/html/tojson/logs/tmp';
 		$_SESSION['log'] = shell_exec($script);
+		if(empty($_SESSION['log'])) $_SESSION['log'] = 'Senha adicionada com sucesso';
 	}
 	public function removekey(){
 		// if(!isset($_SESSION['serverODL']) || empty($_SESSION['serverODL'])) header('location: ../../index.php');
@@ -24,7 +25,7 @@ class KeyControle{
 
 		$script='curl -u "admin":"admin" -H "Content-type: application/json" -X POST \http://'.$serverODL.'/restconf/operations/odl-mappingservice:remove-key \--data @/var/www/html/tojson/json/consulta.json --trace /var/www/html/tojson/logs/tmp';
 		$_SESSION['log'] = shell_exec($script);
-	
+		if(empty($_SESSION['log'])) $_SESSION['log'] = 'Senha removida com sucesso';
 	}
 	public function getkey(){
 		// if(!isset($_SESSION['serverODL']) || empty($_SESSION['serverODL'])) header('location: ../../index.php');
