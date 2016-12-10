@@ -305,6 +305,7 @@ session_start();
 			$sucessaddkey = 'Senha adicionada com sucesso.';
 			$sucessaddmap = 'Mapeamento adicionado com sucesso';
 			$sucessget = 'output';
+			$sucessrm = "Senha removida com sucesso.";
 			//sucesso
 			if(($_SESSION['log']) == $sucessaddkey || ($_SESSION['log']) == $sucessaddmapping | substr(($_SESSION["log"]), 2, 6) == $sucessget ){
 			echo '<div class="alert alert-success" style="text-align: center"> <strong> '.$_SESSION["log"].'. </strong> <a href="log-rede.php" target="_blank"> Ver log de rede </a></div>';
