@@ -300,7 +300,9 @@ session_start();
 			echo '<div class="alert alert-success" style="text-align: center"> <strong> As descrições do serviço aparecerão aqui. </strong> <a href="json/logs/tmp" target="_blank"> Ver log de rede </a></div>';
 		}
 
-		else echo $_SESSION['log'];
+		else{
+			echo '<div class="alert alert-success" style="text-align: center"> <strong> '.$_SESSION['log'].'. </strong> <a href="json/logs/tmp" target="_blank"> Ver log de rede </a></div>';
+		}
 		unset($_SESSION['log']);
 	?>
 	</fieldset>
