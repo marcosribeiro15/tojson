@@ -306,15 +306,7 @@ session_start();
 		}
 		unset($_SESSION['log']);
 	?>
-	</fieldset>
-	<fieldset style="width:800px; border: black;">
-		<legend>
-			WWW-DATA log<br>
-		</legend>
-	<?php
-		echo shell_exec('');
-	?>
-	</fiedlset>
+</fieldset>
 </body>
 </html>
 <!-- 
