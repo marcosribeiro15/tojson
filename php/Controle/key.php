@@ -6,10 +6,10 @@ session_start();
 
 class KeyControle{
 	public function addkey(){
-		// if(!isset($_SESSION['serverODL']) || empty($_SESSION['serverODL'])) header('location: ../../index.php');
-		// else $serverODL=$_SESSION['serverODL'];
+		if(!isset($_SESSION['serverODL']) || empty($_SESSION['serverODL'])) header('location: ../../index.php');
+		else $serverODL=$_SESSION['serverODL'];
 
-		$serverODL='10.132.12.138:8181';
+		// $serverODL='10.132.12.138:8181';
 
 		KeyControle::make_addkey();
 		$script='curl -u "admin":"admin" -H "Content-type: application/json" -X POST \http://'.$serverODL.'/restconf/operations/odl-mappingservice:add-key \--data @/var/www/html/tojson/json/addkey.json --trace /var/www/html/tojson/logs/tmp';
@@ -17,31 +17,31 @@ class KeyControle{
 		if(empty($_SESSION['log'])) $_SESSION['log'] = 'Senha adicionada com sucesso';
 	}
 	public function removekey(){
-		// if(!isset($_SESSION['serverODL']) || empty($_SESSION['serverODL'])) header('location: ../../index.php');
-		// else $serverODL=$_SESSION['serverODL'];
-		// KeyControle::make_consulta();
+		if(!isset($_SESSION['serverODL']) || empty($_SESSION['serverODL'])) header('location: ../../index.php');
+		else $serverODL=$_SESSION['serverODL'];
+		
 
-		$serverODL='10.132.12.138:8181';
+		// $serverODL='10.132.12.138:8181';
 
 		$script='curl -u "admin":"admin" -H "Content-type: application/json" -X POST \http://'.$serverODL.'/restconf/operations/odl-mappingservice:remove-key \--data @/var/www/html/tojson/json/consulta.json --trace /var/www/html/tojson/logs/tmp';
 		$_SESSION['log'] = shell_exec($script);
 		if(empty($_SESSION['log'])) $_SESSION['log'] = 'Senha removida com sucesso';
 	}
 	public function getkey(){
-		// if(!isset($_SESSION['serverODL']) || empty($_SESSION['serverODL'])) header('location: ../../index.php');
-		// else $serverODL=$_SESSION['serverODL'];
+		if(!isset($_SESSION['serverODL']) || empty($_SESSION['serverODL'])) header('location: ../../index.php');
+		else $serverODL=$_SESSION['serverODL'];
 
-		$serverODL='10.132.12.138:8181';
+		// $serverODL='10.132.12.138:8181';
 
 		KeyControle::make_consulta();
 		$script='curl -u "admin":"admin" -H "Content-type: application/json" -X POST \http://'.$serverODL.'/restconf/operations/odl-mappingservice:get-key \--data @/var/www/html/tojson/json/consulta.json --trace /var/www/html/tojson/logs/tmp';
 		$_SESSION['log'] = shell_exec($script);
 	}
 	public function refreshkey(){
-		// if(!isset($_SESSION['serverODL']) || empty($_SESSION['serverODL'])) header('location: ../../index.php');
-		// else $serverODL=$_SESSION['serverODL'];
+		if(!isset($_SESSION['serverODL']) || empty($_SESSION['serverODL'])) header('location: ../../index.php');
+		else $serverODL=$_SESSION['serverODL'];
 
-		$serverODL='10.132.12.138:8181';
+		// $serverODL='10.132.12.138:8181';
 		
 		KeyControle::make_addkey();
 		$script='curl -u "admin":"admin" -H "Content-type: application/json" -X POST \http://'.$serverODL.'/restconf/operations/odl-mappingservice:update-key \--data @/var/www/html/tojson/json/addkey.json --trace /var/www/html/tojson/logs/tmp';
