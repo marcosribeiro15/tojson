@@ -6,10 +6,11 @@ session_start();
 
 class KeyControle{
 	public function addkey(){
-		if(!isset($_SESSION['serverODL']) || empty($_SESSION['serverODL'])) header('location: ../../index.php');
-		else $serverODL=$_SESSION['serverODL'];
+		// if(!isset($_SESSION['serverODL']) || empty($_SESSION['serverODL'])) header('location: ../../index.php');
+		// else $serverODL=$_SESSION['serverODL'];
 
 		// $serverODL='10.132.12.138:8181';
+				$serverODL='200.129.39.109:8181';
 
 		KeyControle::make_addkey();
 		$script='curl -u "admin":"admin" -H "Content-type: application/json" -X POST \http://'.$serverODL.'/restconf/operations/odl-mappingservice:add-key \--data @/var/www/html/tojson/json/addkey.json --trace /var/www/html/tojson/logs/tmp';
