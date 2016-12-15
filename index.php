@@ -298,9 +298,8 @@ session_start();
 </div>
 <fieldset>
 				<?php
-					if(!isset($_SESSION['login'])){
-						header('location: login.php')
-					} else echo "Bem-vindo, " + $_SESSION['login'];
+					if(!isset($_SESSION['login'])) header('location: login.php');
+					else echo "Bem-vindo, " + $_SESSION['login'];
 				?>
 
   <?php
