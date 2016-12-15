@@ -297,6 +297,12 @@ session_start();
     </div>
 </div>
 <fieldset>
+				<?php
+					if(!isset($_SESSION['login'])){
+						header('location: login.php')
+					} else echo "Bem-vindo, " + $_SESSION['login'];
+				?>
+
   <?php
 		if(!isset($_SESSION['log']) || empty($_SESSION['log'])){
 			//info
@@ -328,6 +334,8 @@ session_start();
 IP do servidor ODL: <?php echo $_SESSION['serverODL']; ?>| <a href="unset-odl.php ">Logout</a> <br>
 </p>
 </div>
+
+
 </body>
 </html>
 <!-- 
