@@ -1,11 +1,12 @@
 <?php
 session_start();
+include_once 'usuarioControle.php';
 ?>
 <!DOCTYPE html>
 
 <html lang="en">
 <head>
-  <title>Edição de arquivos json</title>
+  <title>Plano de controle LISP</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -28,29 +29,33 @@ session_start();
     color: #fff;
     text-align: center;
 }
-</style>
-<?php
-	if(!isset($_SESSION['serverODL']) || empty($_SESSION['serverODL'])) {
-		if(!isset($_GET['serverODL']) || empty($_GET['serverODL'])) header('location: server-odl.php');
-		else $_SESSION['serverODL'] = $_GET['serverODL'];
+.col-xs-2{
+	display: block;
+	width:70%;
+	float: middle;
+	text-align: center;
 	}
+</style>
+
+<?php
+		if(!isset($_SESSION['login']) || empty($_SESSION['login'])) header('location: login.php');
 ?>
 	<div class="header">
-		ToJson
+		Plano de controle LISP
 	</div>
 <body>    
     <div class="container-fluid" style="padding-top: 100px"> 
     	<div class="col-sm-5" style="margin-bottom: 50px;">
-    		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#keys" style="width:150px; margin-bottom: 10px"> Manage Keys </button>
+    		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#keys" style="width:150px; margin-bottom: 10px"> Gerenciar senhas </button>
 		    	<div id="keys" class="collapse" style="width: auto">
 					<!-- cadastrar chave -->
-					<button type="button" class="btn btn-link" data-toggle="modal" data-target="#addkey" style="width:150px"> Add Key </button>
+					<button type="button" class="btn btn-link" data-toggle="modal" data-target="#addkey" style="width:150px"> Adicionar senha </button>
 					<div id="addkey" class="modal fade" role="dialog">
 					<div class="modal-dialog">
 							<div class="modal-content"  style="color:gray">
         						<div class="modal-header">
         							<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h1 class="modal-title">add key</h1>
+									<h1 class="modal-title">Adicionar senha</h1>
 								</div>
 								<div class="modal-body">
 								<form method="get" action="php/Controle/key.php">
@@ -66,13 +71,13 @@ session_start();
 						</div>
 					</div>
 					<!-- atualizar chave -->
-					<button type="button"  class="btn btn-link" data-toggle="modal" data-target="#refreshkey" style="width:150px;"> Refresh Key </button>
+					<button type="button"  class="btn btn-link" data-toggle="modal" data-target="#refreshkey" style="width:150px;"> Atualizar senha </button>
 					<div id="refreshkey" class="modal fade" role="dialog">
 					<div class="modal-dialog">
 							<div class="modal-content"  style="color:gray">
         						<div class="modal-header">
         							<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h1 class="modal-title">add key</h1>
+									<h1 class="modal-title">Atualizar senha</h1>
 								</div>
 								<div class="modal-body">
 								<form method="get" action="php/Controle/key.php">
@@ -81,7 +86,7 @@ session_start();
 									Senha:<p> <input type="text" name="key_string" value="lisp-passwd"/></br></br>
 									Tipo de senha:<p> <input type="text" name="key_type" value="1"/></br></br>
 									<input type="hidden" name="action" value="refresh"></br></br>
-								        <input type="submit" value="Refresh"/></br>
+								        <input type="submit" value="Atualizar"/></br>
 								</form>
 								</div>
 							</div>
@@ -91,46 +96,51 @@ session_start();
 					<!-- Get key -->
 					<form role="form-role" method="get" action="php/Controle/key.php">
 						<div class="form-group">
-							<div class="col-xs-2" style="width:130px;padding-right:4px">
-									<label for="ipv4-prefix"></label><input class="form-control" id="ipv4-prefix" type="text" name="ipv4_prefix_eid" value="192.168.0.6">
+							<div class="col-xs-2" style="padding-left:40px;">
+								<div class="col-xs-1" style="width: auto;padding: 1px 1px 1px 1px;">
+									<input class="form-control" id="ipv4-prefix" type="text" name="ipv4_prefix_eid" value="192.168.0.6" style="width:130px">
+								</div>
+								<div class="col-xs-1" style="width: auto;padding: 1px 1px 1px 1px;">
+									<input class="form-control" id="mask" type="text" name="mask" value="32" style="width:60px">
+						        </div>
+						        <input type="hidden" name="action" value="get"/>
+						    	<div class="col-xs-1" style="width: auto;padding: 1px 1px 1px 1px;">
+						    		<input type="submit" class="btn btn-default" data-toggle="collapse" data-target="#getkey" style="width:100px" value="Consultar" />
+								</div>
 							</div>
-							<div class="col-xs-2"; style="width:60px;padding-left:0px;">
-									<label for="mask"></label><input class="form-control" id="mask" type="text" name="mask" value="32">
-							</div>
-					        <input type="hidden" name="action" value="get"/>
-					        <div style="padding-top: 20px;">
-					    		<input type="submit" class="btn btn-default" data-toggle="collapse" data-target="#getkey" style="width:60px; float: left" value="Get" />
-					    	</div>
 						</div>
 					</form>
 					<br>
 					<!-- delete key -->
 					<form role="form-role" method="get" action="php/Controle/key.php">
 						<div class="form-group">
-							<div class="col-xs-2" style="width:130px;padding-right:4px">
-									<label for="ipv4-prefix"></label><input class="form-control" id="ipv4-prefix" type="text" name="ipv4_prefix_eid" value="192.168.0.6">
-							</div>
-							<div class="col-xs-2"; style="width:60px;padding-left:0px;">
-									<label for="mask"></label><input class="form-control" id="mask" type="text" name="mask" value="32">
-							</div>
+							<div class="col-xs-2" style="padding-left:40px;">
+								<div class="col-xs-1" style="width: auto;padding: 1px 1px 1px 1px">
+									<input class="form-control" id="ipv4-prefix" type="text" name="ipv4_prefix_eid" value="192.168.0.6" style="width:130px">
+								</div>
+								<div class="col-xs-1" style="width: auto;padding: 1px 1px 1px 1px">
+									<input class="form-control" id="mask" type="text" name="mask" value="32" style="width:60px">
+								</div>
 					        <input type="hidden" name="action" value="del"/>
-					        <div style="padding-top: 20px;">
-					    		<input type="submit" class="btn btn-default" data-toggle="collapse" data-target="#getkey" style="width:60px;float: left" value="Delete" />
+					        <div class="col-xs-1" style="width: auto;padding: 1px 1px 1px 1px;">
+					    		<input type="submit" class="btn btn-default" data-toggle="collapse" data-target="#getkey" style="width:100px;float: left" value="Deletar" />
 					    	</div>
 						</div>
 					</form>
 				</div>
+				</form>
+			</div>
 	    </div>
 	    <div class="col-sm-7">
-	    		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#mappings" style="width:150px"> Manage mappings</button>
+	    		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#mappings" style="width:200px"> Gerenciar mapeamentos</button>
 		    	<div id="mappings" class="collapse" style="padding-top: 20px">
-					<button type="button" class="btn btn-link" data-toggle="modal" data-target="#addmappingpath" style="width:150px"> Add mapping path </button>
+					<button type="button" class="btn btn-link" data-toggle="modal" data-target="#addmappingpath" style="width:250px"> Adicionar mapeamento PATH </button>
 					<div id="addmappingpath"  class="modal fade" role="dialog">
 						<div class="modal-dialog">
 							<div class="modal-content"  style="color:gray">
         						<div class="modal-header">
         							<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h1 class="modal-title">add mapping path</h1>
+									<h1 class="modal-title">Adicionar mapeamento PATH</h1>
 								</div>
 								<div class="modal-body">
 										<form method="get" action="php/Controle/mapping.php">
@@ -163,13 +173,13 @@ session_start();
 							</div>
 						</div>
 					</div>
-					<button type="button" class="btn btn-link" data-toggle="modal" data-target="#addmappinglb" style="width:150px"> Add mapping LB </button>
+					<button type="button" class="btn btn-link" data-toggle="modal" data-target="#addmappinglb" style="width:250px"> Adicionar mapeamento LB </button>
 					<div id="addmappinglb" class="modal fade" role="dialog">
 						<div class="modal-dialog">
 							<div class="modal-content"  style="color:gray">
         						<div class="modal-header">
         							<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h1 class="modal-title"> Add mapping LB:</h1>
+									<h1 class="modal-title"> Adicionar mapeamento LB</h1>
 								</div>
 								<div class="modal-body">
 										<form method="get" action="php/Controle/mapping.php">
@@ -215,13 +225,13 @@ session_start();
 							</div>
 						</div>
 					</div>
-					<button type="button" class="btn btn-link" data-toggle="modal" data-target="#addmappingpelp" style="width:150px"> Add mapping ELP </button>
+					<button type="button" class="btn btn-link" data-toggle="modal" data-target="#addmappingpelp" style="width:250px"> Adicionar mapeamento ELP </button>
 					<div id="addmappingpelp" class="modal fade" role="dialog">
 						<div class="modal-dialog">
 							<div class="modal-content" style="color:gray">
         						<div class="modal-header">
         							<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h1 class="modal-title">Add mapping ELP:</h1>
+									<h1 class="modal-title">Adicionar mapeamento ELP</h1>
 								</div>
 								<div class="modal-body">
 									<form method="get" action="php/Controle/mapping.php">
@@ -260,36 +270,39 @@ session_start();
 						</div>
 					</div>
 					<br><br>
-					<div style="padding-left: 50px">
-						<form role="form-role" method="get" action="php/Controle/mapping.php">
+						<form role="form-role" method="get" action="php/Controle/mapping.php" style="float: center">
 							<div class="form-group">
-								<div class="col-xs-2" style="width:130px;padding-right:4px">
-										<label for="ipv4-prefix"></label><input class="form-control" id="ipv4-prefix" type="text" name="ipv4_prefix_eid" value="192.168.0.6">
+							<div class="col-xs-2" style="padding-left:180px;">
+								<div class="col-xs-1" style="width: auto;padding: 1px 1px 1px 1px;">
+									<input class="form-control" id="ipv4-prefix" type="text" name="ipv4_prefix_eid" value="192.168.0.6" style="width:130px">
 								</div>
-								<div class="col-xs-2"; style="width:60px;padding-left:0px;">
-										<label for="mask"></label><input class="form-control" id="mask" type="text" name="mask" value="32">
+								<div class="col-xs-1" style="width: auto;padding: 1px 1px 1px 1px;">
+									<input class="form-control" id="mask" type="text" name="mask" value="32" style="width:60px">
 								</div>
 						        <input type="hidden" name="acao" value="get"/>
-						        <div style="padding-top: 20px;">
-						    		<input type="submit" class="btn btn-default" data-toggle="collapse" data-target="#getkey" style="width:60px;float: left" value="Get" />
+						        <div class="col-xs-1" style="width: auto;padding: 1px 1px 1px 1px;">
+						    		<input type="submit" class="btn btn-default" data-toggle="collapse" data-target="#getkey" style="width:100px" value="Consultar" style="padding-top: 20px;"/>
 						    	</div>
 							</div>
 						</form>
 						<br>
 						<form role="form-role" method="get" action="php/Controle/mapping.php">
 							<div class="form-group">
-								<div class="col-xs-2" style="width:130px;padding-right:4px">
-										<label for="ipv4-prefix"></label><input class="form-control" id="ipv4-prefix" type="text" name="ipv4_prefix_eid" value="192.168.0.6">
-								</div>
-								<div class="col-xs-2"; style="width:60px;padding-left:0px;">
-										<label for="mask"></label><input class="form-control" id="mask" type="text" name="mask" value="32">
-								</div>
-						        <input type="hidden" name="acao" value="del"/>
-						        <div style="padding-top: 20px;">
-						    		<input type="submit" class="btn btn-default" data-toggle="collapse" data-target="#getkey" style="width:60px;float: left" value="Delete" />
-						    	</div>
+								<div class="col-xs-2" style="padding-left:180px;">
+									<div class="col-xs-1" style="width: auto;padding: 1px 1px 1px 1px;">
+											<input class="form-control" id="ipv4-prefix" type="text" name="ipv4_prefix_eid" value="192.168.0.6" style="width:130px">
+									</div>
+									<div class="col-xs-1" style="width: auto;padding: 1px 1px 1px 1px;">
+											<input class="form-control" id="mask" type="text" name="mask" value="32" style="width:60px">
+									</div>
+							        <input type="hidden" name="acao" value="del"/>
+							        <div class="col-xs-1" style="width: auto;padding: 1px 1px 1px 1px;">
+							    		<input type="submit" class="btn btn-default" data-toggle="collapse" data-target="#getkey" style="width:100px" value="Deletar" style="padding-top: 20px;" />
+							    	</div>
+							    </div>
 						</form>
 					</div>
+				</div>
 				</div>
 				</div>
 			</div>	
@@ -297,10 +310,6 @@ session_start();
     </div>
 </div>
 <fieldset>
-				<?php
-					if(!isset($_SESSION['login'])) header('location: login.php');
-					else echo "Bem-vindo, " + $_SESSION['login'];
-				?>
 
   <?php
 		if(!isset($_SESSION['log']) || empty($_SESSION['log'])){
@@ -329,8 +338,12 @@ session_start();
 
 
 <div style="float: right; margin-right: 100px; margin-top: 50px">
+				
 <p>
-IP do servidor ODL: <?php echo $_SESSION['serverODL']; ?>| <a href="unset-odl.php ">Logout</a> <br>
+IP do servidor ODL: <?php echo $_SESSION['serverODL']; ?>| <a href="cadastrarUsuario.php ">Mudar servidor ODL</a> <br>
+</p>
+<p>
+Bem vindo, <b><i><?php echo $_SESSION['login']; ?> </i></b>| <a href="Usuario/usuarioControle.php?acao=sair&login="<?php echo $_SESSION['login']; ?>>Logout</a> <br>
 </p>
 </div>
 

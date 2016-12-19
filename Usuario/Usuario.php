@@ -2,6 +2,6 @@
 class Usuario{
 	public $login;
 	public $senha;
-	public $id;
+	public $serverODL;
 }
 ?>
