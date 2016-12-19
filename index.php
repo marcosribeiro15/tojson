@@ -340,7 +340,7 @@ include_once 'usuarioControle.php';
 <div style="float: right; margin-right: 100px; margin-top: 50px">
 				
 <p>
-IP do servidor ODL: <?php echo $_SESSION['serverODL']; ?>| <a href="cadastrarUsuario.php ">Mudar servidor ODL</a> <br>
+IP do servidor ODL: <?php echo $_SESSION['serverODL']; ?>| <a href="Usuario/cadastrarUsuario.php ">Mudar servidor ODL</a> <br>
 </p>
 <p>
 Bem vindo, <b><i><?php echo $_SESSION['login']; ?> </i></b>| <a href="Usuario/usuarioControle.php?acao=sair&login="<?php echo $_SESSION['login']; ?>>Logout</a> <br>
