@@ -21,7 +21,7 @@ Class UsuarioControle{
 	}
 		public function atualizarUsuario(){
 		
-		if(isset($_GET['login']) && $_GET['login'] != ''){
+		if(isset($_SESSION['login']) && $_SESSION['login'] != ''){
 			$loginUsuario = $_SESSION['login'];
 			$senhaUsuario = $_GET['senha'];
 			$serverODL = $_GET['serverODL'];
@@ -72,8 +72,10 @@ Class UsuarioControle{
 			header('location:../index.php');
 	}else if($acao == 'sair')
 		UsuarioControle::sair();
-	else if($acao == 'atualizar')
+	else if($acao == 'atualizar'){
 		UsuarioControle::atualizarUsuario();
+		header('location:../index.php');
+	}
 	else if($acao == 'buscar')
 		UsuarioControle::buscarUsuario();
 ?>

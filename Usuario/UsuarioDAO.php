@@ -23,7 +23,9 @@ class UsuarioDAO extends Connection{
 		$stmt->bindParam(':login', $usuario->login);
 		$stmt->bindParam(':senha', $usuario->senha);
 		$stmt->bindParam(':serverODL', $usuario->serverODL);
-		$stmt->execute();  
+		$stmt->execute();
+
+		$_SESSION['serverODL'] = $usuario->serverODL;
 
 		parent::fecharConexao($conexao);
 	}
